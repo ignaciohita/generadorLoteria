@@ -1,5 +1,5 @@
 {
-    "name": "generadorLoterias",
+    "name": "generadorLoteria",
     "version": "1.0.0",
     "description": "Ejemplo del libro: un sistema sencillo que genera combinaciones aleatorias para lotería",
     "author": "Jose Ignacio Hita Barraza <ignaciohita@gmail.com>",
@@ -16,10 +16,10 @@
     "main": "app/index.html",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ignaciohita/generadorLoterias.git"
+        "url": "https://github.com/ignaciohita/generadorLoteria.git"
     },
     "bugs": {
-        "url": "https://github.com/ignaciohita/generadorLoterias/issues"
+        "url": "https://github.com/ignaciohita/generadorLoteria/issues"
     },
     "keywords": [
     "angularJS",
