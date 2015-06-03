@@ -1,0 +1,9 @@
+<div ng-controller="ResultadoController" ng-init="obtenerResultado()">
+    <h2>Esta es tu combinación:</h2>
+
+    <li ng-repeat="resultado in resultados">
+        <h3>{{resultado.posicion}} - {{resultado.valor}}</h3>
+    </li>
+
+    <h3>¡Suerte con el sorteo!</h3>
+</div>

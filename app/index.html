@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <base href="/">
+    <title>Generador de Loterías</title>
+
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script src="js/controller/cargandoController.js"></script>
+    <script src="js/controller/resultadoController.js"></script>
+    <script src="js/controller/seleccionController.js"></script>
+</head>
+
+<body ng-app="GeneradorLoterias" ng-controller="MainController" ng-init="initApp()">
+    <h1>Bienvenido al generador de loterías</h1>
+    <ng-view></ng-view>
+</body>
+
+</html>
