@@ -5,16 +5,16 @@ angular.module('GeneradorLoterias')
 
         $scope.cargaInforme = 0;
 
-        $scope.iniciarCargaInforme = function () {
+        $scope.iniciarCargaCombinacion = function () {
             setTimeout(progresoCarga, 100);
         };
 
         function progresoCarga() {
             var agregarCarga = Math.floor(Math.random() * 20);
 
-            $scope.cargaInforme = Math.min(100, $scope.cargaInforme + agregarCarga);
+            $scope.cargaCombinacion = Math.min(100, $scope.cargaCombinacion + agregarCarga);
 
-            if ($scope.cargaInforme === 100) {
+            if ($scope.cargaCombinacion === 100) {
                 $location.path('/resultados');
             } else {
                 setTimeout(progresoCarga, 250);
