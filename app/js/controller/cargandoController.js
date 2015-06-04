@@ -3,7 +3,7 @@ angular.module('GeneradorLoterias')
     .controller('CargandoController', ['$scope', '$location', function ($scope, $location) {
         'use strict';
 
-        $scope.cargaInforme = 0;
+        $scope.cargaCombinacion = 0;
 
         $scope.iniciarCargaCombinacion = function () {
             setTimeout(progresoCarga, 100);
