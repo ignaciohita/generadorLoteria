@@ -16,6 +16,17 @@ gulp.task("dev-server", function () {
         }));
 });
 
+// Servidor web para probar versión de Apache Cordova
+gulp.task("cordova-server", function () {
+    "use strict";
+
+    gulp.src("./www")
+        .pipe(webserver({
+            open: true,
+            livereload: true
+        }));
+});
+
 // Busca errores de JavaScript de acuerdo con JsLint
 gulp.task("jsLint", function () {
     "use strict";
@@ -45,6 +56,17 @@ gulp.task("jsGoogleLint", function () {
         .pipe(gjsLint.reporter("console"), {
             fail: true
         });
+});
+
+// Copia el contenido de app/ en www/ para probar la aplicación con Apache Cordova
+gulp.task("cordovaDev", function () {
+    "use strict";
+
+    gulp.src("./app/**/*")
+        .pipe(gulp.dest("./www/"));
+
+    gulp.src("./app/res/**/*")
+        .pipe(gulp.dest("./www/res/"));
 });
 
 gulp.task("default", ["dev-server"]);

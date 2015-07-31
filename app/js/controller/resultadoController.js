@@ -5,7 +5,9 @@ angular.module('GeneradorLoterias')
 
         $scope.obtenerResultado = function () {
             var i,
-                numeroAleatorio;
+                numeroAleatorio,
+                patronVibracion = [],
+                aceleracionAnterior;
 
             $scope.resultados = [];
 
@@ -18,11 +20,15 @@ angular.module('GeneradorLoterias')
                             posicion: i,
                             valor: 'X'
                         });
+
+                        patronVibracion.push(300);
                     } else {
                         $scope.resultados.push({
                             posicion: i,
                             valor: numeroAleatorio.toString()
                         });
+
+                        patronVibracion.push(numeroAleatorio * 200);
                     }
                 }
             } else {
@@ -43,7 +49,38 @@ angular.module('GeneradorLoterias')
                         posicion: i + 1,
                         valor: $scope.resultados[i]
                     };
+
+                    patronVibracion.push($scope.resultados[i].valor * 100);
                 }
+            }
+
+            if (navigator && navigator.vibrate) {
+                navigator.vibrate(patronVibracion);
+            }
+
+            if (navigator && navigator.accelerometer !== undefined) {
+                $scope.acelerometroDisponible = true;
+
+                navigator.accelerometer.watchAcceleration(function (acceleration) {
+                    var aceleracionActual;
+
+                    if (aceleracionAnterior !== undefined) {
+                        aceleracionActual = {};
+                        aceleracionActual.x = Math.abs(aceleracionAnterior.x - acceleration.x);
+                        aceleracionActual.y = Math.abs(aceleracionAnterior.y - acceleration.y);
+                        aceleracionActual.z = Math.abs(aceleracionAnterior.z - acceleration.z);
+                    }
+
+                    if (aceleracionActual && aceleracionActual.x + aceleracionActual.y + aceleracionActual.z > 50) {
+                        $location.path('/cargando');
+                    } else {
+                        aceleracionAnterior = acceleration;
+                    }
+                }, undefined, {
+                    frequency: 300
+                });
+            } else {
+                $scope.acelerometroDisponible = false;
             }
         };
     }]);
