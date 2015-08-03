@@ -1,7 +1,6 @@
 <html>
 
 <head>
-    <base href="/">
     <title>Generador de Loterías</title>
 
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
@@ -17,7 +16,7 @@
     <script src="js/controller/seleccionController.js"></script>
 </head>
 
-<body ng-app="GeneradorLoterias" ng-controller="MainController" ng-init="initApp()">
+<body ng-app="GeneradorLoterias" ng-controller="MainController" data-ng-init="initApp()">
     <h1>Bienvenido al generador de loterías</h1>
     <ng-view></ng-view>
 </body>

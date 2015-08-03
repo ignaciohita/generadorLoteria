@@ -10,7 +10,7 @@ angularApp.controller('MainController', function ($scope, $location) {
 }).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     'use strict';
 
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode();
 
     $routeProvider.when('/seleccion', {
         templateUrl: 'view/seleccionLoteria.tpl.html',
