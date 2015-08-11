@@ -3,23 +3,10 @@
     <name>Generador de Lotería</name>
     <description>Ejemplo del libro: un sistema sencillo que genera combinaciones aleatorias para lotería</description>
     <author email="ignaciohita@gmail.com" href="http://www.hita.pro">Jose Ignacio Hita Barraza</author>
+
     <content src="index.html" />
 
-    <preference name="permissions" value="none" />
-    <preference name="orientation" value="default" />
-    <preference name="target-device" value="universal" />
-    <preference name="fullscreen" value="true" />
-    <preference name="webviewbounce" value="true" />
-    <preference name="prerendered-icon" value="true" />
-    <preference name="stay-in-webview" value="false" />
-    <preference name="ios-statusbarstyle" value="black-opaque" />
-    <preference name="detect-data-types" value="true" />
-    <preference name="exit-on-suspend" value="false" />
-    <preference name="show-splash-screen-spinner" value="true" />
-    <preference name="auto-hide-splash-screen" value="true" />
-    <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="14" />
-    <preference name="android-installLocation" value="auto" />
 
     <icon src="www/img/icon/icon144x144.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/img/icon/icon36x36.png" />
@@ -30,7 +17,7 @@
     <icon gap:platform="ios" height="72" width="72" src="www/img/icon/icon72x72.png" />
     <icon gap:platform="ios" height="114" width="114" src="www/img/icon/icon57x57.png" />
     <icon gap:platform="ios" height="144" width="144" src="www/img/icon/icon72x72.png" />
-    <!--
+
     <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/res/screen/android/screen-hdpi-portrait.png" />
@@ -40,15 +27,9 @@
     <gap:splash gap:platform="ios" height="1136" src="www/res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640" />
     <gap:splash gap:platform="ios" height="1024" src="www/res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
-    -->
-    <access origin="*" />
 
-    <plugin name="cordova-plugin-whitelist" version="1.1.0" />
     <plugin name="cordova-plugin-device-motion" version="1.1.1" />
     <plugin name="cordova-plugin-vibration" version="1.2.0" />
-
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
 
     <platform name="android">
         <allow-intent href="market:*" />
@@ -60,4 +41,9 @@
     </platform>
 
     <engine name="android" spec="^4.0.0" />
+
+    <feature name="Accelerometer">
+        <param name="android-package" value="org.apache.cordova.devicemotion.AccelListener" />
+        <param name="ios-package" value="CDVAccelerometer" />
+    </feature>
 </widget>

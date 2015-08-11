@@ -69,13 +69,15 @@ angular.module('GeneradorLoterias')
                         aceleracionActual.x = Math.abs(aceleracionAnterior.x - acceleration.x);
                         aceleracionActual.y = Math.abs(aceleracionAnterior.y - acceleration.y);
                         aceleracionActual.z = Math.abs(aceleracionAnterior.z - acceleration.z);
+                        aceleracionActual.total = aceleracionActual.x + aceleracionActual.y + aceleracionActual.z;
+                        $scope.$apply();
                     }
 
-                    if (aceleracionActual && aceleracionActual.x + aceleracionActual.y + aceleracionActual.z > 50) {
+                    if (aceleracionActual && aceleracionActual.total > 50) {
                         $location.path('/cargando');
-                    } else {
-                        aceleracionAnterior = acceleration;
                     }
+
+                    aceleracionAnterior = acceleration;
                 }, undefined, {
                     frequency: 300
                 });
